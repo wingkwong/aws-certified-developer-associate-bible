@@ -49,3 +49,18 @@
   1. Develop an Identity Broker to communicate with LDAP and AWS STS
   2. Identity Broker always authenticates with LDAP first, Then with AWS STS
   3. Application then gets temporary access to AWS resources
+
+### Active Directory Federation
+- Questions:
+  - Can you authenticate with Active Directory?
+    - Yes. It's using SAML
+  - Whether or not you're authenticating to Active Directory first, and then given a temporary security credential or if you get the temporary security credential first which is then authenticated against Active Directory
+    - authenticate against Active Directory first,then you would be assigned the temporary security credential
+
+### Web Identity Federation
+- Authentication with Identity Provider
+  - Verify identity with Facebook
+  - Receive an access token
+- Obtain temporary security credential
+  - Use the access token to obtain temporary security credentials by making an AssumeRoleWithWebIdentity request.
+- Access AWS Resources
