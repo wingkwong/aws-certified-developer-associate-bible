@@ -83,54 +83,54 @@
 ### Quiz
 - Which statement best describes IAM?
   - [x] IAM allows you to manage users, groups and roles and their corresponding level of access to the AWS Platform.
-  - IAM allows you to manage users passwords only. AWS staff must create new users for your organisation. This is done by raising a ticket.
-  - IAM allows you to manage permissions for AWS resources only.
-  - IAM stands for Improvised Application Management and it allows you to deploy and manage applications in the AWS Cloud.
+  - [ ] IAM allows you to manage users passwords only. AWS staff must create new users for your organisation. This is done by raising a ticket.
+  - [ ] IAM allows you to manage permissions for AWS resources only.
+  - [ ] IAM stands for Improvised Application Management and it allows you to deploy and manage applications in the AWS Cloud.
 
 - Which is NOT a feature of IAM?
-  - Centralised control of your AWS account
-  - Integrates with existing active directory account allowing single sign on
-  - Fine-grained access control to AWS resources
+  - [ ] Centralised control of your AWS account
+  - [ ] Integrates with existing active directory account allowing single sign on
+  - [ ] Fine-grained access control to AWS resources
   - [x] Allows you to setup biometric authentication, so that no passwords are required
 
 - EC2 instances can have credentials stored on them so that the instances can access other resources (such as S3 buckets) AND AWS recommends that you do this instead of assigning roles.
-  - True
+  - [ ] True
   - [x] False
 
 - What is the name of the service to allow users to use their social media account to gain temporary access to the AWS platform?
-  - Active Directory Authentication Services
-  - Web Confederation Services
+  - [ ] Active Directory Authentication Services
+  - [ ] Web Confederation Services
   - [x] Web Identity Federation
-  - Facebook Sign In Service
+  - [ ] Facebook Sign In Service
 
 - What is the API call used to obtain temporary security credentials when authenticating using Web Identity Federation?
-  - GetRoleWithWebIdentity
+  - [ ] GetRoleWithWebIdentity
   - [x] AssumeRoleWithWebIdentity
-  - GetRole
-  - AssumeRole
+  - [ ] GetRole
+  - [ ] AssumeRole
 
 - What is the name of the API call to request temporary security credentials from the AWS platform when federating with Active Directory?
-  - GetSAMLRole
-  - ShowMeTheSAML
+  - [ ] GetSAMLRole
+  - [ ] ShowMeTheSAML
   - [x] AssumeRoleWithSAML
-  - CovertRoleToSAML
+  - [ ] CovertRoleToSAML
 
 - When using active directory to authenticate to AWS what are the correct steps performed?
-  - 1) The user navigates to the AWS console, 2) The user enter in their active directory single sign on credentials in to AWS, 3) The user's web browser receives a SAML assertion from AWS,  4) The user is then able to access the AWS Console.
+  - [ ] 1) The user navigates to the AWS console, 2) The user enter in their active directory single sign on credentials in to AWS, 3) The user's web browser receives a SAML assertion from AWS,  4) The user is then able to access the AWS Console.
   - [x] 1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's web browser receives a SAML assertion from the AD server, 4) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the AssumeRoleWithSAML API request is used to request temporary security credentials. 5) The user is then able to access the AWS Console.
-  - 1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's web browser receives a SAML assertion from the AD server, 4) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the GiveUserSAMLAccess API request is used to request temporary security credentials. 5) The user is then able to access the AWS Console.
-  - Federating with Active Directory is not possible with AWS.
+  - [ ] 1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's web browser receives a SAML assertion from the AD server, 4) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the GiveUserSAMLAccess API request is used to request temporary security credentials. 5) The user is then able to access the AWS Console.
+  - [ ] Federating with Active Directory is not possible with AWS.
 
 - SAML stands for Security Assertion Markup Language.
   - [x] True
-  - False
+  - [ ] False
 
 - The AWS sign-in endpoint for SAML is https://signin.aws.amazon.com/saml
   - [x] True
-  - False
+  - [ ] False
 
 - When using Web Identity Federation to allow a user to access an AWS service (such as an S3 bucket) what is the correct order of steps?
   - [x] 1) A user authenticates with facebook first. They are then given an ID token by facebook. An API call called AssumeRoleWithWebIdentity is then used in conjunction with the ID token. A user is then granted temporary security credentials.
-  - 1) A user logs in to the AWS platform using their facebook credentials. 2) AWS authenticate with facebook to check the credentials. 3) Temporary Security Access is granted to AWS.
-  - Users cannot use Facebook credentials to access the AWS platform.
-  - 1) A user makes the AssumeRoleWithWebIdentity API Call. 2) The user is then redirected to facebook to authenticate. 3) Once authenticated the user is given an ID token. 4) The user is then granted temporary access to the AWS platform.
+  - [ ] 1) A user logs in to the AWS platform using their facebook credentials. 2) AWS authenticate with facebook to check the credentials. 3) Temporary Security Access is granted to AWS.
+  - [ ] Users cannot use Facebook credentials to access the AWS platform.
+  - [ ] 1) A user makes the AssumeRoleWithWebIdentity API Call. 2) The user is then redirected to facebook to authenticate. 3) Once authenticated the user is given an ID token. 4) The user is then granted temporary access to the AWS platform.
