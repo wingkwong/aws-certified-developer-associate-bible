@@ -49,3 +49,24 @@
       - Throughput Optimized HDD - low cost HDD volume designed for frequently accessed, throughput-intensive workloads
       - Cold HDD - lowest cost HDD volume designed for less frequently accessed workloads
       - Magnetic - previous generation. Can be a boot volume.
+
+### EC 101 - Part 2
+
+- EBS consists of
+  - SSD, General Purposes - GP2 - (Up to 10,000 IOPS)
+  - SSD, Provisioned IOPS - I01 - (More than 10,000 IOPS)
+  - HDD, Throughput Optimized - ST1 -frequently accessed workloads
+  - HDD, Cold - SC1 - less frequently accessed data
+  - HDD, Magnetic - Standard - cheap, infrequently accessed storage
+- You cannot mount 1 EBS volume to multiple EC2 instances, instead use EFS
+- EC2 Instance Types
+  - D - Density
+  - R - RAM
+  - M - Main choice for general purpose apps
+  - C - Compute
+  - G - Graphics
+  - I - IOPS
+  - F - FPGA
+  - T - Cheap general purpose (think T2 Micro)
+  - P - Graphics (think Pics)
+  - X - Extreme Memory
