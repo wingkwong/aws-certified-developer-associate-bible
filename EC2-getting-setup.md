@@ -90,3 +90,26 @@
     - If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
   - You cannot block specific IP addresses using Security Groups, instead use Network Access Control Lists
   - You can specify allow rules, but not deny rules
+
+### Upgrading EBS Volume Types
+  - Volumes exist on EBS:
+    - Virtual Hard Disk
+  - Snapshots exist on S3
+  - Snapshots are point in time copies of Volumes
+  - Snapshots are incremental - this means that only the blocks that have changed since your last snapshot are moved to S3
+  - If this is your first snapshot, it may take some time to create
+
+- Snapshots of Root Device volumes
+  - To create a snapshot for Amazon EBS volumes that serve as root devices, you should stop the instance before taking the Snapshots
+  - However, you can take a snap while the instance is running
+  - You can create AMI's from both Volumes and Snapshots
+  - You can change EBS volume sizes on the fly, including changing the size and storage type
+  - Volumes will ALWAYS be in the same availability zone as the EC2 instance
+  - To move an EC2 volume from one AZ/Region to another, take a snap or an image of it, then copy it to the new AZ/Region
+    - The major difference is between the type of service referred to. A snapshot is of an EBS volume where you are able to save state and reboot with the same data at a certain point in time. An AMI is similar, but its for the EC2 instances themselves
+
+- Volumes vs Snapshot - Security
+   - Snapshots of encrypted volumes are encrypted automatically
+   - Volumes restored from encrypted snapshots are encrypted automatically
+   - You can share snapshots, but only if they are unencrypted
+    - These snapshots can be shared with other AWS accounts or made public
