@@ -113,3 +113,25 @@
    - Volumes restored from encrypted snapshots are encrypted automatically
    - You can share snapshots, but only if they are unencrypted
     - These snapshots can be shared with other AWS accounts or made public
+
+### The AWS CLI - Using Credentials
+
+- Encrypt
+  - In Transit:
+    - SSL/TLS (HTTPS)
+  - At Rest:
+    - Server Side Encryption
+      - S3 Managed Keys - SSE-S3
+      - AWS Key Management Service, Managed Keys, S3-KMS
+      - Server Side Encryption with Customer Provided Keys - SSE-C
+  - Client Side Encryption
+- If you want to enforce the use of encryption for your files stored in S3, use an S3 Bucket Policy to deny all PUT requests that don't include the x-amz-server-side-encryption parameter in the request header
+
+- Enforcing Encryption on S3 Bucket
+  - Every time a file is uploaded to S3, a PUT request is initiated
+  - If the file is to be encrypted at upload time, the x-amz-server-side-encryption parameter will be included in the request header
+  - Two options are currently available
+    - x-amz-server-side-encryption: AWS256 (SSE-S3 - S3 managed keys)
+    - x-amz-server-side-encryption: ams:kms (SSE-KMS - KMS managed keys)
+  - When this parameter is included in the header of the PUT request, it tells S# to encrypt the object at the time of upload, using the specified encryption method
+  - You can enforce the use of Server Side Encryption by using a Bucket Policy which denies any S3 PUT request which doesn't include the x-amz-server-side-encryption parameter in the request header
