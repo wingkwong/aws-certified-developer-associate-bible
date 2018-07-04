@@ -1,0 +1,28 @@
+# Cloudfront
+
+- What is a CDN
+  - A content delivery network (CDN) is a system of distributed servers (network) that deliver webpages and other web content to as user based on the geographic locations of the user, the origin of the webpage, and a content delivery server.
+
+- Key Terminology
+  - Edge Location - This is the location where content is cached and can also be written. Separate to an AWS Region / AZ
+  - Origin - This is the origin of all the files that the CDN will distribute. Origins can be an S3 Bucket, an EC2 Instance, an Elastic Load Balancer, or Route53.
+  - Distribution - This is the name given the CDN, which consists of a collection of Edge locations
+  - Web Distribution - Typically used for Websites
+  - RTMP - Used for Media Streaming
+
+- What is Cloudfront
+  - Amazon CloudFront can be used to deliver your entire website, including dynamic, static, streaming, and interactive content using a global network of edge locations. Requests for your content are automatically routed to the nearest edge location, so content is delivered with the best possible performance.
+  - Can be used to optimize performance for users accessing a website backed by S3
+  - Amazon CloudFront is optimized to work with other Amazon Web services, like Amazon S3, Amazon EC2, Amazon Elastic Load Balancing, and Amazon Route 53. It also works seamlessly with any non-AWS origin server, which stores the original, definitive versions of your files
+
+- Types of Distribution
+  - Web Distribution - Used for Websites, HTTP / HTTPS
+  - RTMP Distribution - (Adobe Real Time Messaging Protocol)
+    - Used for Media Streaming / Flash multi-media content
+
+- Exam Tips
+  - Refer to Key Terminology
+  - Edge locations are not just READ only - you can WRITE to them, too. (i.e. PUT an object on to them)
+  - CloudFront Edge Locations are utilized by S3 Transfer Acceleration to reduce latency for S3 uploads
+  - Objects are cached for the life of the TTL (Time To Live)
+  - You can clear cached objects, but you will be charged
