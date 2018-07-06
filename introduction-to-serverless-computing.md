@@ -95,12 +95,12 @@
     - Browser makes an HTTP OPTIONS call for a URL
       - OPTIONS is an HTTP method like GET, PUT and POST
     - Server returns a response that says
-      - Thees other domains are approved to GET this URL
+      - These other domains are approved to GET this URL
     - Error - 'Origin policy cannot be read at the remote resource?'
       - You need to enable CORS on API Gateway
 
   - Exam Tips
-    - Remember what API Gateway is at at high Level
+    - Remember what API Gateway is at a high Level
     - API Gateway has caching capabilities to increase performance
     - API Gateway is low cost and scales automatically
     - You can throttle API Gateway to prevent attacks
