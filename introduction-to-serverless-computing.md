@@ -132,3 +132,10 @@
   - Versions are immutable (Cannot be changed)
   - Can split traffic using aliases to different versions
   - Cannot split traffic with $latest, instead create an alias to latest
+
+### Step functions
+- Summary
+  - allows you to visualize and test your serverless applications
+  - provides a graphical console to arrange and visualize the components of your application as a series of steps. This makes it simple to build and run multistep applications
+  - automatically triggers and tracks each step, and retries when there are errors, so your application executes in order and as expected.
+  - logs the state of each steps, so when things do go wrong, you can diagnose and debug problems quickly
