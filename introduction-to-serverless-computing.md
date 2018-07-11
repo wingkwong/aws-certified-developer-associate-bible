@@ -115,7 +115,7 @@
   - Each Lambda function version has a unique Amazon Resource Name (ARN). After you publish a version, it is immutable (that is, it can't be changed)
   - AWS Lambda maintains your latest function code in the $LATEST version. When you update your function code, AWS Lamda replaces the code in the $LATEST version of the Lambda function
 
-- Qualified / Unqalified variations
+- Qualified / Unqualified variations
   - You can refer to this function using its Amazon Resource Name (ARN). There are two ARNs associated with this initial version:
   - Qualified ARN - The function ARN with the version suffix.
     - arn:aws:lambda:aws-region:acct-id:function:helloworld:$LATEST
