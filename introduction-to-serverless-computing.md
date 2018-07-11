@@ -139,3 +139,34 @@
   - provides a graphical console to arrange and visualize the components of your application as a series of steps. This makes it simple to build and run multistep applications
   - automatically triggers and tracks each step, and retries when there are errors, so your application executes in order and as expected.
   - logs the state of each steps, so when things do go wrong, you can diagnose and debug problems quickly
+
+### X-ray
+- What is X-Ray?
+  - AWS X-Ray is a service that collects data about requests that your application servers, and provides tools you can use to view, filter, and gain insights into that data to identify issues and opportunities for optimization.
+  - For any traced required to your application, you can see detailed information not only about the request and response, but also about calls that your application makes to downstream AWS resources, microservices, databases and HTTP web APIs
+
+- X-Ray SDKs
+  - provides
+    - interceptors to add to your code to trace incoming HTTP requests
+    - client handlers to instrument AWS SDK clients that your application uses to call other AWS services
+    - An HTTP client to use to instrument calls to other internal and external HTTP web services
+
+- X-Ray Integration
+  - Elastic Load Balancing
+  - AWS Lambda
+  - Amazon API Gateway
+  - Amazon Elastic Compute Cloud
+  - AWS Elastic Beanstalk
+
+- X-Ray Languages
+  - Java
+  - Go
+  - Node.js
+  - Python
+  - Ruby
+  - .Net
+
+- Exam Tips
+  - Understand what does X-Ray SDKs provides
+  - Understand what does X-Ray integrate with
+  - What language is supported
