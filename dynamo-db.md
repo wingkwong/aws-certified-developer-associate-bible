@@ -1,0 +1,49 @@
+# Introduction To DynamoDB
+
+- What is DynamoDB
+  - Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed database and supports both document and key-value data models. Its flexible data model and reliable performance make it a great fit for mobile, web, gaming, ad-tech, IoT, and many other applications.
+
+- DynamoDB
+  - Stored on SSD storage
+  - Spread Across 3 geographically distinct data centres
+  - Choice of 2 consistency models
+    - Eventual Consistent Reads (Default)
+      - Consistency across all copies of data is usually reached within a second. Repeating a read after a short time should return the updated data. (Best Read Performance)
+    - Strongly Consistent Reads
+      - A strongly consistent read returns a result that reflects all writes that received a successful response prior to the read
+  - Tables
+  - Items (Think a row of data in a table)
+  - Attributes (Think of a column of data in a table)
+  - Supports key-value and document data structures
+  - Key = The name of the data, Value = the data itself
+  - Documents can be written in JSON, HTML or XML
+
+- DynamoDB - Primary Keys
+   - DynamoDB stores and retrieves data based on a Primary Key
+   - 2 Types of Primary Keys
+   - Partition Key - unique attribute e.g userID
+    - Value of the Partition key is input to an internal hash function which determines the partition or physical location on which the data is stored
+    - If you are using the Partition Key as your Primary Key, then no two items can have the same Partition Key
+  - Composite Key (Partition Key + Sort Key) in combination
+    - e.g Same user posting multiple times to a forum
+      - Primary Key would a Composite Key consisting of
+      - Partition Key - User ID
+      - Sort key - Timestamp of the post
+      - 2 items may have the same Partition Key, but they must have a different Sort Key
+      - All items with the same Partition Key are stored together, then sorted according to the Sort Key Value
+      - Allows you to store multiple items with the same Partition Key
+
+- DynamoDB Access Control
+  - Authentication and Access Control to DynamoDB is managed via AWS IAM
+  - You can create an IAM user within your AWS account which has specific permissions to access and create DynamoDB Tables
+  - You can create an IAM role with enables you to obtain temporary access keys that can be used to access AWS services like DynamoDB
+  - You can also use a special IAM Condition to restrict user access to only their own records   
+
+- DynamoDB Exam Tips
+  - Amazon DynamoDB is a low latency NoSQL database
+  - Consists of Tables Items and Attributes
+  - Supports both document and key-value data models
+  - Supported document formats are JSON, HTML, XML
+  - 2 types of Primary Keys
+    - Partition Key
+    - Combination of Partition Key + Sort Key (Composite Key)
