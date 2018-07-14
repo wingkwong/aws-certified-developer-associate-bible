@@ -7,3 +7,4 @@
   - [EC2 & Getting Setup](EC2-getting-setup.md)
   - [S3](s3.md)
   - [Introduction to Serverless Computing](introduction-to-serverless-computing.md)
+  - [Dynamo DB](dynamo-db.md)
