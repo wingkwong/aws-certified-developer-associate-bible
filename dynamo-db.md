@@ -79,5 +79,5 @@
   | Local Secondary Index     | Global Secondary Index     |
   | :------------- | :------------- |
   | Must be created at when you create your table      | Can create any time - at table creation or after      |
-  | Smae Partition Key as your table      | Different Partition Key       |
+  | Same Partition Key as your table      | Different Partition Key       |
   | Different Sort Key       | Different Sort Key      |
