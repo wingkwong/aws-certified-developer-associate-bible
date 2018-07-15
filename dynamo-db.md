@@ -47,3 +47,37 @@
   - 2 types of Primary Keys
     - Partition Key
     - Combination of Partition Key + Sort Key (Composite Key)
+
+### Indexes Deepdive
+- What is an Index?
+  - In SQL databases, an index is a data structure which allows to you perform fast queries on specific columns in a table. You select the columns that you want included in the index and run your searches on the index - rather than on the entire dataset
+  - In DynamoDB, 2 types of index are supported to help speed-up your DynamoDB queries:
+    - Local Secondary Index
+    - Global Secondary Index
+
+- Local Secondary Index
+  - Can only be created when you are creating your table
+  - You cannot add, remove, or modify it later
+  - It has the same Partition Key as your original table
+  - But a different Sort Key
+  - Give you a different view of your data, organized according to an alternative Sort Key
+  - Any queries based on this Sort Key are much faster using the index than the main table
+  - e.g. Partition Key: User ID; Sort Key: account creation date
+
+- Global Secondary Index
+  - You can create when you create your tables, or add it later
+  - Different Partition Key as well as a Different Sort Key
+  - So gives a completely different view of the data
+  - Speeds up any queries relating to this alternative Partition and Sort Key
+  - e.g. Partition Key: email address; Sort Key: last log-in date
+
+ - Exam Tips:
+  - Indexes enable fast queries on specific data columns
+  - Give you a different view of your data, based on alternative Partition / Sort keys
+  - Important to understand the differences
+
+  | Local Secondary Index     | Global Secondary Index     |
+  | :------------- | :------------- |
+  | Must be created at when you create your table      | Can create any time - at table creation or after      |
+  | Smae Partition Key as your table      | Different Partition Key       |
+  | Different Sort Key       | Different Sort Key      |
