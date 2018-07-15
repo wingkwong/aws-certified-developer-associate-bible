@@ -71,7 +71,7 @@
   - Speeds up any queries relating to this alternative Partition and Sort Key
   - e.g. Partition Key: email address; Sort Key: last log-in date
 
- - Exam Tips:
+ - Indexes Deepdive Exam Tips:
   - Indexes enable fast queries on specific data columns
   - Give you a different view of your data, based on alternative Partition / Sort keys
   - Important to understand the differences
@@ -81,3 +81,54 @@
   | Must be created at when you create your table      | Can create any time - at table creation or after      |
   | Same Partition Key as your table      | Different Partition Key       |
   | Different Sort Key       | Different Sort Key      |
+
+### Scan Vs Query
+
+- What is a Query?
+  - A Query operation finds items in a table based on the Primary Key attribute and a distinct value to search for
+  - e.g. Select an item where the userID is equal to 212, will select all the attributes for that item, e.g. first name, surname, email etc
+  - Use an optional Sort Key name and value to refine the results
+  - e.g. if your Sort Key is a timestamp, you can refine the query to only select items with a timestamp of the last 7 days
+  - By default, a Query returns all the attributes for the items but you can use the ProjectionExpression parameter if you want the query to only return the specific attributes you want
+  - e.g. if you only want to see the email address rather than all the attributes
+  - Results are always sorted by the Sort Key
+  - Numeric order - by default in ascending order (1,2,3,4)
+  - ASCII character code values
+  - You can reverse the order by setting the ScanIndexForward parameter to false
+  - By default, Queries are Eventually Consistent
+  - You need to explicitly set the query to be Strong Consistent
+
+- What is a Scan?
+  - A Scan operation examines every item in the table
+  - By default returns all data Attributes
+  - Use the ProjectExpression parameter to refine the scan to only return the attributes you want
+
+- Query or Scan?
+  - Query is more efficient than a Scan
+  - Scan dumps the entire table, then filters out the values to provide the desired result - removing the unwanted data
+  - This adds an extra step of removing the data you don't want
+  - As the table grows, the scan operation takes longer
+  - Scan operation on a large table can use up the provisioned throughput fora  large table in just a single operation
+
+- How to improve Performance
+  - You can reduce the impact of a query or scan by setting a smaller page size which uses fewer read operations
+  - e.g. set the page size to return 40 items
+  - Larger number of smaller operations will allow other requests to succeed without throttling
+  - Avoid using scan operations if you can: design tables in a way that you can use the Query, Get, or BatchGetItem APIs
+  - By default, a scan operation processes data sequentially in returning 1MB increments before moving on to retrieve the next 1MB of data. It can only scan one partition at a time
+  - You can configure DynamoDB to use Parallel scans instead by logically dividing a table or index into segments and scanning each segment in Parallel
+  - Best to avoid parallel scans if your table or index is already incurring heavy read / write activity from other application
+
+- Scan Vs Query - Exam Tips
+  - A query operation finds items in a table using only the Primary Key attribute
+  - You provide the Primary Key name and a distinct value to search for
+  - A Scan operation examines every item in the table
+  - By default returns all data attributes
+  - Query results are always sorted by the Sort Key is there is one
+  - Sorted in ascending order
+  - Set ScanIndexForward parameter to false to reverse the order - queries only
+  - Query operation is generally more efficient than a Scan
+  - Reduce the impact of a query or scan by setting a smaller page size which uses fewer read operations
+  - Isolate scan operations to specific tables and segregate them from your mission-critical traffic
+  - Try Parallel scans, rather than the default sequential scan
+  - Avoid using scan operations if you can: design tables in a way that you can use the Query, Get, or BatchGetItem APIs
