@@ -132,3 +132,53 @@
   - Isolate scan operations to specific tables and segregate them from your mission-critical traffic
   - Try Parallel scans, rather than the default sequential scan
   - Avoid using scan operations if you can: design tables in a way that you can use the Query, Get, or BatchGetItem APIs
+
+
+### DynamoDB Provisioned Throughput
+
+- DynamoDB Read and Write Capacity Units
+  - DynamoDB Provisioned Throughput is measured in Capacity Units
+  - When you create your table, you specify your requirements in terms of Read Capacity Units and Write Capacity Units
+  - 1 x Write Capacity Unit = 1 x 1 KB Write per second
+  - 1 x Read Capacity Unit = 1 x Strongly Consistent Read of 4KB per second OR
+  - 2 x Eventually Consistent Reads of 4KB per second (Default)
+
+  - Table with 5 x Read Capacity Units and 5 x Write Capacity
+  - This configuration will be able to perform:
+    - 5 x 4KB Strongly Consistent reads = 20 KB per second
+    - Twice as many Eventually Consistent = 40KB
+    - 5 x 1KB Writes per second
+  - if your application reads or writes larger items it will consume more Capacity Units and will cost you more as well
+
+- Strongly Consistent Reads Calculation
+    - Your application needs to read 80 items (table rows) per second
+    - Each item 3KB in size
+    - You need Strongly Consistent Reads
+
+    - First, calculate how many Read Capacity Units needed for each read:
+      - Size of each item / 4KB
+      - 3KB / 4KB = 0.75
+    - Rounded-up to the nearest whole number, each read will need 1 x Read Capacity Unit per read operation
+    - Multiplied by the number of reads per second = 80 Read Capacity Units required
+
+- Eventually Consistent Reads Calculation
+  - Do the same calculation and you get 2 x 4KB reads per second or double the throughput of Strongly Consistent reads
+  - Size of each item / 4KB
+  - 3KB / 4KB = 0.75
+  - Rounded-up to the nearest whole number, each read will need 1 x Read Capacity Unit per read operation
+  - Divided 80 by 2, so you only need 40 Read Capacity units for eventually consistent reads
+
+- Write Capacity Units Calculation
+  - You want to write 100 items per second
+  - Each item 512 bytes in size
+
+  - First, calculate how many Write Capacity Units needed for each read:
+    - Size of each item / 1KB (for Write Capacity Units)
+    - 512B / 1KB = 0.5
+  - Rounded-up to the nearest whole number, each read will need 1 x Write Capacity Unit per read operation
+  - Multiplied by the number of reads per second = 100 Write Capacity Units required
+
+- DynamoDB Provisioned Throughput Exam Tips
+  - Provisioned Throughput is measured in Capacity Units
+  - 1 x Write Capacity Unit = 1 x 1KB Write per second
+  - 1 x Read Capacity Unit = 1 x 4KB Strongly Consistent Read OR 2 x 4KB Eventually Consistent v Reads per second
