@@ -8,3 +8,4 @@
   - [S3](s3.md)
   - [Introduction to Serverless Computing](introduction-to-serverless-computing.md)
   - [Dynamo DB](dynamo-db.md)
+  - [KMS & Encryption on AWS](kms-encryption-on-aws.md)
