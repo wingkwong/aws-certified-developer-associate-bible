@@ -43,4 +43,13 @@
     - Default is 30 seconds - increase if your task takes > 30 seconds to complete
     - Max 12 hours
   - Short Polling - returned immediately even if no messages are in the queue
-  - Long Polling - polls the queue periodically and only returns a response when a message is in the queue or the timeout is reached 
+  - Long Polling - polls the queue periodically and only returns a response when a message is in the queue or the timeout is reached
+
+
+### Simple Notification Service (SNS)
+
+- SNS Exam Tips
+  - SNS is a scalable and highly available notification service which allows you to send push notifications from the cloud
+  - Variety of messages formats supported: SMS text message, email, Amazon SQS queues, any HTTP endpoint
+  - Pub-sub(Publish-Subscribe) model whereby users subscribe to topics (access points)
+  - It is a push mechanism, rather than a pull(poll) mechanism
