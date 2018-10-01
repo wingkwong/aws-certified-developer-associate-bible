@@ -32,6 +32,7 @@
   - Amazon SQS long polling is a way to retrieve messages from your Amazon SQS queues
   - While the regular short polling returns immediately (even if the message queue being polled is empty), long polling doesn't return a response until a message arrives in the message queue, or the long poll times out
   - As such, long polling can save your money
+  - Maximum long poll timeout: 20 seconds
 
 - SQS Exam Tips
   - SQS is a distributed message queueing system
