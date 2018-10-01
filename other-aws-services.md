@@ -53,3 +53,15 @@
   - Variety of messages formats supported: SMS text message, email, Amazon SQS queues, any HTTP endpoint
   - Pub-sub(Publish-Subscribe) model whereby users subscribe to topics (access points)
   - It is a push mechanism, rather than a pull(poll) mechanism
+
+### SNS V.S SES
+- Exam Tips
+  - SES:
+    - Remember that SES is for email only
+    - It can be used for incoming and outgoing mail
+    - It is not subscription based, you only need to know the email address
+  - SNS:
+    - SNS supports multiple formats (SMS, SQS, HTTP, email)
+    - Push Notifications only
+    - Pub/sub model: comsumers must subscribe to a topic
+    - You can fan-out messages to large number of recipients (e.g. multiple clients each with their own SQS queue)
