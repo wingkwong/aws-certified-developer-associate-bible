@@ -76,7 +76,7 @@
   - Can fully manage the EC2 instances for you or you can take full administrative control
   - Updates, monitoring, metics, and health checks all included
 
-- Updating Elastic Beanstalk Exam Tip:
+- Updating Elastic Beanstalk Exam Tips:
   - All at once
     - Service interruption while you update the entire environment at once
     - To roll back, perform a further all at All at Once upgrade
@@ -90,3 +90,10 @@
     - Preferred option for mission critical production systems
     - Maintains full capacity
     - To roll back, just delete the new instances and autoscaling group
+
+- Advanced Elastic Beanstalk Exam Tips
+  - You can customize your Elastic Beanstalk environment by adding configuration files
+  - The fils are written in YAML or JSON
+  - Files have a .config extension
+  - The .config files are saved to the .ebextensions folder
+  - Your .ebextensions folder must be located in the top level directory of your application source code bundle
