@@ -63,5 +63,30 @@
   - SNS:
     - SNS supports multiple formats (SMS, SQS, HTTP, email)
     - Push Notifications only
-    - Pub/sub model: comsumers must subscribe to a topic
-    - You can fan-out messages to large number of recipients (e.g. multiple clients each with their own SQS queue)
+    - Pub/sub model: consumers must subscribe to a topic
+    - You can fan-out messages to large number of recipients (e.g. multiple clients each with their own SQS queue
+
+### Elastic Beanstalk 101
+
+- Exam Tips
+  - Deploys and scales your web applications including the web application server platform where required
+  - Supports widely sued programming technologies - Java, PHP, Python, Ruby, Go, Docker, .NET, Node.js
+  - And application server platforms like Tomcat, Passenger, Puma, and IIS
+  - Provisions the underlying resources for you
+  - Can fully manage the EC2 instances for you or you can take full administrative control
+  - Updates, monitoring, metics, and health checks all included
+
+- Updating Elastic Beanstalk Exam Tip:
+  - All at once
+    - Service interruption while you update the entire environment at once
+    - To roll back, perform a further all at All at Once upgrade
+  - Rolling
+    - Reduced capacity during deployment
+    - To roll back, perform a further rolling update
+  - Rolling with Additional Batch
+    - Maintains full capacity
+    - To roll back, perform a further rolling update
+  - Immutable
+    - Preferred option for mission critical production systems
+    - Maintains full capacity
+    - To roll back, just delete the new instances and autoscaling group
