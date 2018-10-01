@@ -97,3 +97,14 @@
   - Files have a .config extension
   - The .config files are saved to the .ebextensions folder
   - Your .ebextensions folder must be located in the top level directory of your application source code bundle
+
+- RDS & Elastic Beanstalk Exam Tips
+  - Two different options for launching your RDS instance:
+    - Launch within Elastic Beanstalk
+      - When you terminate the Elastic Beanstalk environment, the database will also be terminated
+      - Quick and easy to add your database and get started
+      - Suitable for Dev and Test environments only
+    - Launch outside of Elastic Beanstalk
+      - Additional configuration steps required - Security Group and Connection information
+      - Suitable for Production environments, more flexibility
+      - Allows connection from multiple environments, you can tear down the application stack without impacting the database
